@@ -6,7 +6,7 @@ import {createUserWithEmailAndPassword, sendEmailVerification} from 'firebase/au
 import {useAuthValue} from './AuthContext'
 
 function SignUp() {
-
+  const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
@@ -40,6 +40,7 @@ function SignUp() {
         })
         .catch(err => setError(err.message))
     }
+    setName('')
     setEmail('')
     setPassword('')
     setConfirmPassword('')
@@ -51,6 +52,12 @@ function SignUp() {
         <h1>Register</h1>
         {error && <div className='auth__error'>{error}</div>}
         <form onSubmit={register} name='registration_form'>
+          <input
+            type='text'
+            value={name}
+            placeholder='Full Name'
+            required
+            onChange={e => setName(e.target.value)}/>
           <input 
             type='email' 
             value={email}

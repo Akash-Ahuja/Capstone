@@ -33,3 +33,9 @@
     font-size: 16px;
     padding: 0 10px;
   }
+  .center{
+    display: flex;
+    justify-content: center;
+    margin-top: 5em;
+    margin-bottom: 5em;
+  }

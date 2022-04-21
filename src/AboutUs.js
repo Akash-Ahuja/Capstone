@@ -1,8 +1,11 @@
 import React from 'react';
-import './App.css';
+import './aboutUs.css';
 
-function AboutUs() {
-  return <h1 className='about-us'>LIKE & SUBSCRIBE</h1>;
-};
-
-export default AboutUs;
+export default function AboutUs() {
+  return (
+    <div class="header">
+      <h1>About Us</h1>
+      <p>Learn more about the company and it's founders</p>
+    </div>
+  );
+}

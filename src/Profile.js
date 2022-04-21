@@ -1,8 +1,7 @@
-
 import './profile.css'
 import {useAuthValue} from './AuthContext'
 import { signOut } from 'firebase/auth' 
-import { auth } from './firebase'
+import { auth } from './config/fire'
 
 
 function Profile() {
@@ -17,6 +16,7 @@ function Profile() {
             <strong>Email verified: </strong>
             {`${currentUser?.emailVerified}`}
           </p>
+          
           <span onClick={() => signOut(auth)}>Sign Out</span>
         </div>
       </div>

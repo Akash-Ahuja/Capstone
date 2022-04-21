@@ -1,7 +1,7 @@
 import './verifyEmail.css'
 import {useAuthValue} from './AuthContext'
 import {useState, useEffect} from 'react'
-import {auth} from './firebase'
+import {auth} from './config/fire'
 import {sendEmailVerification} from 'firebase/auth'
 import {useNavigate} from 'react-router-dom'
 
@@ -68,4 +68,4 @@ function VerifyEmail() {
   )
 }
 
-export default VerifyEmail
+export default VerifyEmail;
