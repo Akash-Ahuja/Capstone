@@ -1,12 +1,15 @@
-import React,{useState} from 'react'
-import './forms.css'
-import {auth} from './config/fire'
+import React,{useEffect, useState} from 'react'
+//import './forms.css'
+import './signup.css'
+import { useAuthState } from 'react-firebase-hooks/auth';
+import {auth, registerWithEmailAndPassword,signInWithGoogle} from './config/fire'
 import {useNavigate, Link} from 'react-router-dom'
-import {createUserWithEmailAndPassword, sendEmailVerification} from 'firebase/auth'
-import {useAuthValue} from './AuthContext'
+//import {createUserWithEmailAndPassword, sendEmailVerification} from 'firebase/auth'
+//import {useAuthValue} from './AuthContext'
 
 function SignUp() {
-  const [name, setName] = useState('')
+
+ /*  const [fname, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
@@ -40,54 +43,96 @@ function SignUp() {
         })
         .catch(err => setError(err.message))
     }
-    setName('')
     setEmail('')
     setPassword('')
     setConfirmPassword('')
   }
+ */
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const [user, loading, error] = useAuthState(auth);
+  const navigate = useNavigate();
+  const register = () => {
+    if(!name) alert ("Please enter name");
+    registerWithEmailAndPassword(name,email,password);
+  };
+  useEffect(() => {
+    if(loading) {
+      //maybe trigger a loading screen
+      return;
+    }
+    if(user) navigate("/profile");
+  }, [user, loading]);
+
+
 
   return (
     <div className='center'>
-      <div className='auth'>
-        <h1>Register</h1>
-        {error && <div className='auth__error'>{error}</div>}
-        <form onSubmit={register} name='registration_form'>
+      <div className='register'>
+      <div className='register__container'>
+          <h1>Register</h1>
           <input
             type='text'
+            className="register__textBox"
             value={name}
-            placeholder='Full Name'
             required
-            onChange={e => setName(e.target.value)}/>
+            placeholder='Full Name'
+            onChange={e => setName(e.target.value)}
+            
+          />
           <input 
             type='email' 
+            className="register__textBox"
             value={email}
-            placeholder="Enter your email"
             required
-            onChange={e => setEmail(e.target.value)}/>
-
+            placeholder="Enter your email"
+            onChange={e => setEmail(e.target.value)}
+            
+          />
           <input 
             type='password'
+            className="register__textBox"
             value={password} 
             required
             placeholder='Enter your password'
-            onChange={e => setPassword(e.target.value)}/>
+            
+            onChange={e => setPassword(e.target.value)}
+            
+          />
 
-            <input 
+          {/* <input 
             type='password'
             value={confirmPassword} 
             required
             placeholder='Confirm password'
-            onChange={e => setConfirmPassword(e.target.value)}/>
+            onChange={e => setConfirmPassword(e.target.value)}/> */}
+            
+          {/* SignUp Button */}
+          <button 
+            type='submit'
+            onClick={register}
+          >
+            Sign Up
+          </button>
 
-          <button type='submit'>Register</button>
-        </form>
-        <span>
-          Already have an account?  
-          <Link to='/login'>login</Link>
-        </span>
+          {/* Sign Up with Google Button */}
+          <button 
+            type='submit'
+            onClick={signInWithGoogle}
+          >
+            Sign Up with Google
+          </button>
+
+          {/* Button to login an account */}
+          <div>
+              Already have an account? <Link to='/login'>Login</Link> now.
+          </div>
+
+        </div>
       </div>
     </div>
   )
 }
 
-export default SignUp
+export default SignUp;

@@ -7,7 +7,27 @@
     text-align: center;
   }
   
-  .profile p {
+.profile__container{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: #dcdcdc;
+  padding: 30px;
+}
+
+.profile__btn {
+  padding: 10px;
+  font-size: 18px;
+  margin-top: 10px;
+  border: none;
+  color:white;
+  background-color: black;
+}
+
+.profile div{
+  margin-top: 7px;
+}
+/*   .profile p {
     text-align: left;
   }
   
@@ -15,4 +35,4 @@
     color: blue;
     margin-top: 30px;
     cursor: pointer;
-  }
+  } */

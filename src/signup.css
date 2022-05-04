@@ -1,0 +1,28 @@
+.center{
+    display: flex;
+    justify-content: center;
+    margin-top: 5em;
+    margin-bottom: 5em;
+}
+
+.register{
+    width: auto;
+    max-width: 500px;
+    border: 1px solid #dcdcdc;
+    padding: 20px;
+    text-align: center;
+}
+
+.register__container{
+    display: flex;
+    flex-direction: column;
+    padding: auto;
+    gap: 15px;
+    margin: 0 auto 10px auto;
+}
+
+.register__textbox{
+    padding: 10px;
+    font: 18px;
+    margin-bottom: 20px;
+}

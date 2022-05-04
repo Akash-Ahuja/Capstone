@@ -1,0 +1,37 @@
+.center{
+    display: flex;
+    justify-content: center;
+    margin-top: 5em;
+    margin-bottom: 5em;
+}
+
+.login{
+    width: auto;
+    max-width: 500px;
+    border: 1px solid #dcdcdc;
+    padding: 20px;
+    text-align: center;
+}
+
+.login__container{
+    display: flex;
+    flex-direction: column;
+    padding: auto;
+    gap: 15px;
+    margin: 0 auto 10px auto;
+}
+
+.login__textbox{
+    padding: 10px;
+    font: 18px;
+    margin-bottom: 20px;
+}
+
+.login__btn{
+    padding: 10px;
+    font-size: 18px;
+    margin-bottom: 10px;
+    border: none;
+    color: white;
+    background-color: black;
+}
