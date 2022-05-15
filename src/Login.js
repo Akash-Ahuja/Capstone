@@ -10,29 +10,6 @@ import {useAuthState} from "react-firebase-hooks/auth";
 
 function Login(){
 
- /*  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('') 
-  const [error, setError] = useState('')
-  const {setTimeActive} = useAuthValue()
-  const navigate = useNavigate()
-
-  const login = e => {
-    e.preventDefault()
-    signInWithEmailAndPassword(auth, email, password)
-    .then(() => {
-      if(!auth.currentUser.emailVerified) {
-        sendEmailVerification(auth.currentUser)
-        .then(() => {
-          setTimeActive(true)
-          navigate('/verify-email')
-        })
-      .catch(err => alert(err.message))
-    }else{
-      navigate('/profile')
-    }
-    })
-    .catch(err => setError(err.message))
-  } */
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('') 
   const [user, loading,error] = useAuthState(auth);
@@ -69,6 +46,7 @@ function Login(){
 
             {/* Login Button */}
             <button 
+              type="submit"
               className="login_btn"
               onClick={() => logInWithEmailAndPassword(email,password)}
             >
@@ -78,6 +56,7 @@ function Login(){
             {/* Sign In with Google Button */}
             <button 
               type='submit'
+              className="login_btn"
               onClick={signInWithGoogle}
             >
               Login with Google

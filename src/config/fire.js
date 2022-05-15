@@ -1,6 +1,6 @@
 // Fire Base
 import { initializeApp } from 'firebase/app';
-import {GoogleAuthProvider, getAuth, signInWithPopup,signInWithEmailAndPassword,createUserWithEmailAndPassword,sendPasswordResetEmail,signOut, sendEmailVerification,deleteUser } from 'firebase/auth';
+import {GoogleAuthProvider, getAuth, signInWithPopup,signInWithEmailAndPassword,createUserWithEmailAndPassword,sendPasswordResetEmail,signOut, sendEmailVerification,deleteUser,  } from 'firebase/auth';
 import {getFirestore, query, getDocs,collection,where,addDoc} from "firebase/firestore"
 
 
@@ -54,7 +54,7 @@ const logInWithEmailAndPassword = async(email,password) => {
 };
 
 // Initalize the register with email and Password
-const registerWithEmailAndPassword = async(name, email, password) => {
+const registerWithEmailAndPassword = async(name, email, password, verifyStatus) => {
     try{
         const res = await createUserWithEmailAndPassword(auth,email,password);
         const user = res.user;
@@ -62,9 +62,11 @@ const registerWithEmailAndPassword = async(name, email, password) => {
             uid: user.uid,
             name,
             authProvider: "local",
-            email
+            email,
+            verifyStatus: user.emailVerified
         });
-
+        //await sendEmailVerification(auth.currentUser);
+        //alert("A Verification email has been sent");
     } catch(err){
         console.error(err);
         alert(err.message);
@@ -97,7 +99,6 @@ const verifyEmail = async() => {
     try{
         await sendEmailVerification(auth.currentUser);
         alert("A Verification email has been sent");
-
     } catch(err){
         console.error(err);
         alert(err.message);

@@ -1,40 +1,43 @@
+* {
+  box-sizing: border-box;
+}
 .header{
-    padding: 80px;
+    padding: 100px;
     text-align: center;
-    background: #64fadc88;
+    background-image: url("pictures/IMG-5488.GIF");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     color: rgb(0, 0, 0);
   }
   /* Increase the font size of the heading */
 .header h1 {
     font-size: 40px;
-  }
-
-.title{
-  color: rgb(0, 0, 0);
-  text-transform: uppercase;
-  line-height: 40px;
 }
-.text-content{
-  display: block;
-  opacity: 0;
-  animation: revealText .5s forwards;
+/* Clear floats after the columns */
+.row {
+  display: flex;
+  flex-wrap: wrap;
 }
-.title-second{
-  animation-delay: .175s;
+.side{
+  flex: 30%;
+  flex-direction: column;
+  background-color: #f1f1f1;
+  padding: 20px;
+  
 }
-.title-third{
-  animation-delay: .25s;
-}
-.title-fourth{
-  animation-delay: .325s;
-}
-@keyframes revealText {
-  from{
-    transform: translateY(20px);
-  }
-  to{
-    opacity: 1;
-    transform: none;
-  }
+.main{
+  flex: 70%;
+  background-color: white;
+  padding: 20px;
+  flex-direction: column;
 
 }
+/* Fake image, just for this example */
+.fakeimg {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+  height: 200px;
+  box-sizing: border-box;
+};

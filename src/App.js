@@ -19,6 +19,7 @@ function App() {
       <Router>
       <Navbar />
         <Routes>
+          
           <Route exact path='/'  element={<Home />} />
           <Route path='/sign-up' element={<SignUp /> } />
           <Route path='/reset' element={<Reset /> } />
@@ -27,6 +28,7 @@ function App() {
           <Route path ='/login' element={<Login />} />
           <Route path='/verify-email' element={<VerifyEmail/>} /> 
           <Route path='/profile' element={<Profile /> } />
+
           </Routes>
       <Footer />
       </Router>
