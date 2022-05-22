@@ -47,7 +47,7 @@ function Navbar() {
                 About us
               </Link>
             </li>
-            <button className='nav-button'>
+            <div className='nav-button'>
               <Link
                 to='/login'
                 className='nav-button-link'
@@ -55,7 +55,7 @@ function Navbar() {
                   <i class="fa fa-user-circle"> </i>
                   Sign Up/ Login
                 </Link>
-            </button>
+            </div>
           
           </ul>
 
