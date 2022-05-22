@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+}
+.header{
+    padding: 100px;
+    text-align: center;
+    background-image: url("pictures/IMG-5488.GIF");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: rgb(0, 0, 0);
+  }
+  /* Increase the font size of the heading */
+.header h1 {
+    font-size: 40px;
+}
+/* Clear floats after the columns */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.side{
+  flex: 30%;
+  flex-direction: column;
+  background-color: #f1f1f1;
+  padding: 20px;
+  
+}
+.main{
+  flex: 70%;
+  background-color: white;
+  padding: 20px;
+  flex-direction: column;
+
+}
+/* Fake image, just for this example */
+.fakeimg {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+  height: 200px;
+  box-sizing: border-box;
+};

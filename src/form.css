@@ -1,0 +1,11 @@
+h1{
+    text-align: center;
+}
+.form_container {
+    display: flex;
+    border: 1px solid #dcdcdc;
+    width: 90%;
+    padding: 20px;
+    text-align: center;
+    flex-direction: column;
+}
